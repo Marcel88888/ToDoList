@@ -7,24 +7,27 @@ app.config['JSON_SORT_KEYS'] = False
 
 DATABASE = "tasks.db"
 
-def get_db():
+
+def get_db():  # function returning database
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = sqlite3.connect(DATABASE)
     return db
 
-@app.teardown_appcontext
-def close_connection(exception):
+
+@app.teardown_appcontext  # function closing connection with database
+def close_connection():
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
 
 
-@app.route('/')
+@app.route('/')  # default route to the website
 def welcome():
     return 'Welcome'
 
-@app.route('/todolist', methods = ['GET', 'POST'])
+
+@app.route('/todolist', methods=['GET', 'POST'])  # route /todolist with no arguments
 def give():
 
     db = get_db()
@@ -119,7 +122,9 @@ def give():
 
     cursor.close()
 
-@app.route('/todolist/<int:number>', methods = ['GET', 'DELETE', 'PATCH'])
+
+# route /todolist with id argument named number
+@app.route('/todolist/<int:number>', methods=['GET', 'DELETE', 'PATCH'])
 def funct(number):
 
     db = get_db()
@@ -188,6 +193,7 @@ def funct(number):
         db.commit()
         cursor.close()
         return '', 204
+
 
 if __name__ == '__main__':
     app.run(debug=True)
