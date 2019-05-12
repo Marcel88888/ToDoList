@@ -1,2 +1,2 @@
 # classes_project
-Car and DieselCar classed with exceptions
+Car and DieselCar classes with exceptions
