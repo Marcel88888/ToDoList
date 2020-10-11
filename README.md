@@ -61,7 +61,7 @@ It only changes the fields that will be given from: title, done, done_date.
   - On success, returns a status of 204 with an empty response.
   
 
-- has a view `/todolist /<task_id>` with the GET method, which returns 404 if the id of a task that does not exist, returns 404 for an existing task.
+- has a view `/todolist/<task_id>` with the GET method, which returns 404 if the id of a task that does not exist, returns 404 for an existing task.
 {
 "title": "Learn even more Python",
 "done": false,
