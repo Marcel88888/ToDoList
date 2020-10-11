@@ -20,7 +20,7 @@ Task description (unfortunately only in polish):
 * SQLite
 
 ## Features
-- has a view available at `/ todolist` with the GET method, which returns a JSON list of previously saved" tasks "in the sqlite database.
+- has a view available at `/todolist` with the GET method, which returns a JSON list of previously saved" tasks "in the sqlite database.
 Elements representing a single task have the following structure:
 {
 "id": 6, ID of the job in the database
@@ -31,7 +31,7 @@ Elements representing a single task have the following structure:
 "done_date": "2019-05-09 14:33:44" date marked as done (UTC zone)
 }
 
-- has a `/ todolist` view with POST method, which accepts JSON as input:
+- has a `/todolist` view with POST method, which accepts JSON as input:
 {
 "title": "Conquer the world",
 "done": false,
@@ -52,7 +52,7 @@ The view returns JSON with the following content:
 }
 where the task_id field contains the identifier of the task just created.
 
-- has a `/ todolist / <task_id>` view with the PATCH method, which accepts JSON as input and edits an existing task with the id provided in the URL.
+- has a `/todolist/<task_id>` view with the PATCH method, which accepts JSON as input and edits an existing task with the id provided in the URL.
 It only changes the fields that will be given from: title, done, done_date.
   - If an id of a task that does not exist is given, it returns 404 status.
   - If done: true is specified and done_date is not specified, it uses the current time as done_date.
@@ -61,7 +61,7 @@ It only changes the fields that will be given from: title, done, done_date.
   - On success, returns a status of 204 with an empty response.
   
 
-- has a view `/ todolist / <task_id>` with the GET method, which returns 404 if the id of a task that does not exist, returns 404 for an existing task.
+- has a view `/todolist /<task_id>` with the GET method, which returns 404 if the id of a task that does not exist, returns 404 for an existing task.
 {
 "title": "Learn even more Python",
 "done": false,
@@ -70,4 +70,4 @@ It only changes the fields that will be given from: title, done, done_date.
 "done_date": "2019-05-09 14:33:44"
 }
 
-- has a view `/ todolist / <task_id>` with the DELETE method, which, if the id of a task that does not exist, is given, returns the 404 status. In the case of an existing task, the task with this id is removed from the database, and then the HTTP 204 status is returned .
+- has a view `/todolist/<task_id>` with the DELETE method, which, if the id of a task that does not exist, is given, returns the 404 status. In the case of an existing task, the task with this id is removed from the database, and then the HTTP 204 status is returned .
