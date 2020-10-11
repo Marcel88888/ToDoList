@@ -1,7 +1,10 @@
-# python, Flask, .db
+# python, Flask, .db, venv
 
 # .db
 *.db
+
+# venv
+/venv/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
