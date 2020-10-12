@@ -7,7 +7,7 @@ To-do list made in Flask connected to SQLite database
 * [Features](#features)
 
 ## General info
-Program made as a recruitment task for internship and to practice things about Flask which I learned on Python course
+Program made as a recruitment task for internship and to practice things about Flask which I learned on a Python course
 
 Task description (unfortunately only in polish):
 ![Task description1](./img/task1.png)
